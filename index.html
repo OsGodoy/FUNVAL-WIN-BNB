@@ -29,80 +29,7 @@
                 </svg>
             </div>
         </div>
-    </header>
-    <!-- modal -->
-        <nav id="modalBuscar" class="fixed sm:hidden bg-slate-900/50 h-full w-screen top-0 z-50">
-            <section class="bg-white h-[85%] px-4 flex flex-col items-center justify-start">
-                <div class="h-15 w-full flex items-center justify-center">
-                    <h6 class="w-[90%] text-[11px] font-medium">
-                        Edit your search
-                    </h6>
-                    <button class="w-[10%] font-bold">
-                        X
-                    </button>
-                </div>
-                <div class="h-25 w-full flex flex-col items-center justify-center rounded-2xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
-                    <div class="border-1 border-gray-100 h-[50%] w-full rounded-t-2xl flex flex-col justify-center px-4">
-                        <p class="text-[8px] font-semibold">LOCATION</p>
-                        <input class="outline-none" type="text">  
-                    </div>
-                    <div class="border-1 border-gray-100 h-[50%] w-full rounded-b-2xl flex flex-col justify-center px-4">
-                        <p class="text-[8px] font-semibold">GUESTS</p>
-                        <input class="outline-none" type="text">  
-                    </div>                  
-                </div>
-                <div class="h-60 w-full flex flex-col items-center justify-center py-4">
-                    <div class="h-[50%] w-[95%] flex flex-col gap-1">
-                        <p class="text-sm font-medium">
-                            Adults
-                        </p>
-                        <p class="text-sm text-gray-400">
-                            Ages 13 or above
-                        </p>
-                        <div class="w-28 flex items-center justify-between self-start">
-                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
-                                -
-                            </button>
-                            <p>
-                                4
-                            </p>
-                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
-                                +
-                            </button>
-                        </div>
-                    </div>
-                    <div class="h-[50%] w-[95%] flex flex-col gap-1">
-                        <p class="text-sm font-medium">
-                            Children
-                        </p>
-                        <p class="text-sm text-gray-400">
-                            Ages 13 or above
-                        </p>
-                        <div class="w-28 flex items-center justify-between self-start">
-                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
-                                -
-                            </button>
-                            <p>
-                                1
-                            </p>
-                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
-                                +
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="h-78 w-full flex items-end justify-center">
-                    <button class="bg-red-400 h-10 w-30 rounded-2xl flex items-center justify-between px-6">
-                        <svg  class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                        </svg>
-                        <p class="text-white">
-                            search
-                        </p>
-                    </button>
-                </div>
-            </section>
-        </nav>
+    </header>        
     <main class="w-80 sm:w-160 lg:w-250 transition-all duration-300">
         <!-- buscador -->
         <section class="sm:hidden h-20 flex items-center justify-center">
@@ -134,7 +61,7 @@
             </p>
         </section>
         <!-- catalogo -->
-         <section class="grid grid-cols-1 sm:grid-cols-2 place-items-center px-4 sm:gap-4 lg:grid-cols-3">
+        <section class="grid grid-cols-1 sm:grid-cols-2 place-items-center px-4 sm:gap-4 lg:grid-cols-3">
             <div class="w-full flex flex-col items-center justify-center gap-2 py-2">
                 <img class="border h-50 sm:h-55 lg:h-60 w-full rounded-2xl" src="" alt="">
                 <div class="w-[95%] flex items-center justify-center">
@@ -152,7 +79,162 @@
                     Descripcion
                 </p>
             </div>
-         </section>
+        </section>
+        <!-- modal mobile-->
+        <nav id="modalBuscarMobile" class="hidden bg-slate-900/50 inset-0 z-50">
+            <section class="bg-white h-180 px-4 flex flex-col items-center justify-start">
+                <div class="h-15 w-full flex items-center justify-center">
+                    <h6 class="w-[90%] text-[11px] font-medium">
+                        Edit your search
+                    </h6>
+                    <button class="w-[10%] font-bold">
+                        X
+                    </button>
+                </div>
+                <div class="h-25 w-full flex flex-col items-center justify-center rounded-2xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
+                    <div class="border-1 border-gray-100 h-[50%] w-full rounded-t-2xl flex flex-col justify-center px-4">
+                        <p class="text-[8px] font-semibold">
+                            LOCATION
+                        </p>
+                        <input class="text-xs outline-none" type="text">  
+                    </div>
+                    <div class="border-1 border-gray-100 h-[50%] w-full rounded-b-2xl flex flex-col justify-center px-4">
+                        <p class="text-[8px] font-semibold">
+                            GUESTS
+                        </p>
+                        <p class="opacity-0 pointer-events-none text-xs">
+                            guests
+                        </p>  
+                    </div>                  
+                </div>
+                <div class="h-60 w-full flex flex-col items-center justify-center py-4">
+                    <div class="h-[50%] w-[95%] flex flex-col gap-1">
+                        <p class="text-sm font-medium">
+                            Adults
+                        </p>
+                        <p class="text-sm text-gray-400">
+                            Ages 13 or above
+                        </p>
+                        <div class="w-28 flex items-center justify-between self-start">
+                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                -
+                            </button>
+                            <p>
+                                0
+                            </p>
+                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                    <div class="h-[50%] w-[95%] flex flex-col gap-1">
+                        <p class="text-sm font-medium">
+                            Children
+                        </p>
+                        <p class="text-sm text-gray-400">
+                            Ages 13 or above
+                        </p>
+                        <div class="w-28 flex items-center justify-between self-start">
+                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                -
+                            </button>
+                            <p>
+                                0
+                            </p>
+                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-78 w-full p-4 flex items-end justify-center">
+                    <button class="bg-red-400 h-10 w-30 rounded-2xl flex items-center justify-between px-6">
+                        <svg  class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        <p class="text-white">
+                            search
+                        </p>
+                    </button>
+                </div>
+            </section>
+        </nav>
+        <!-- modal grande-->
+        <nav id="modalBuscarGrande" class="hidden bg-slate-900/50 inset-0 z-50">
+            <section class="bg-white h-115 py-18 flex flex-col items-center justify-center gap-8">
+                <div class="h-10 w-150 lg:w-250 flex items-center justify-center rounded-xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
+                    <div class="border-1 border-gray-100 h-full w-[35%] rounded-l-xl flex flex-col justify-center py-1 px-4">
+                        <p class="text-[8px] font-semibold">
+                            LOCATION
+                        </p>
+                        <input class="text-xs outline-none" type="text">  
+                    </div>
+                    <div class="border-1 border-gray-100 h-full w-[35%] flex flex-col justify-center py-1 px-4">
+                        <p class="text-[8px] font-semibold">
+                            GUESTS
+                        </p>
+                        <p class="opacity-0 pointer-events-none text-xs">
+                            guests
+                        </p>  
+                    </div> 
+                    <div class="border-1 border-gray-100 h-full w-[30%] rounded-r-xl flex items-center justify-center">
+                        <button class="bg-red-400 h-[80%] w-30 rounded-xl flex items-center justify-between px-6">
+                            <svg  class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                            <p class="text-white">
+                                search
+                            </p>
+                        </button>
+                    </div>                 
+                </div>
+                <div class="h-60 w-150 lg:w-250 flex items-start justify-start gap-2">
+                    <div class="h-full w-[35%] flex flex-col px-2 gap-1">
+                        
+                    </div>
+                    <div class="h-full w-[35%] flex flex-col px-2 gap-1">
+                        <div>
+                            <p class="text-sm font-medium">
+                                Adults
+                            </p>
+                            <p class="text-sm text-gray-400">
+                                Ages 13 or above
+                            </p>
+                            <div class="w-25 flex items-center justify-between self-start">
+                                <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                    -
+                                </button>
+                                <p>
+                                    0
+                                </p>
+                                <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">
+                                Children
+                            </p>
+                            <p class="text-sm text-gray-400">
+                                Ages 13 or above
+                            </p>
+                            <div class="w-25 flex items-center justify-between self-start">
+                                <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                    -
+                                </button>
+                                <p>
+                                    0
+                                </p>
+                                <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </nav>
     </main>
 </body>
 </html>
