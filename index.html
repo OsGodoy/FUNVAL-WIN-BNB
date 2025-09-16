@@ -19,7 +19,7 @@
             <img class="h-full" src="src/images/icons/logo-f7862584.svg" alt="">
         </div>
         <!-- buscador grande -->
-        <div id="botonBuscarGrande" class="hidden sm:flex justify-self-end items-center justify-center h-[55%] w-[45%] lg:w-[30%] rounded-xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
+        <div id="botonBuscarGrande" class="cursor-pointer hover:scale-105 duration-300 hidden sm:flex justify-self-end items-center justify-center h-[55%] w-[45%] lg:w-[30%] rounded-xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
             <div class="border-1 border-gray-100 rounded-l-xl h-full w-[45%] flex items-center justify-center p-2">
                 <p style="font-family: Mulish, sans-serif;" class="flex items-center justify-center text-gray-400 text-xs h-[90%] w-[90%]">
                     Add location
@@ -37,8 +37,8 @@
             </div>
         </div>
         <!-- modal grande-->
-        <nav id="modalBuscarGrande" class="hidden bg-slate-900/50 inset-0 z-50">
-            <section class="bg-white h-115 xl:h-150 flex flex-col items-center xl:justify-start xl:py-20 justify-center gap-8">
+        <nav id="contenModalBuscarGrande" class="fixed bg-slate-900/50 inset-0 z-50 opacity-0 duration-600 pointer-events-none">
+            <section id="modalBuscarGrande" class="bg-white h-115 xl:h-150 flex flex-col items-center xl:justify-start xl:py-20 justify-center gap-8 -translate-y-full duration-600">
                 <div class="h-10 w-150 lg:w-250 flex items-center justify-center rounded-xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
                     <!-- boton agregar locacion -->
                     <div id="botonLocacionGrande" class="border-1 border-gray-100 h-full w-[35%] rounded-l-xl flex flex-col justify-center py-1 px-4">
@@ -48,7 +48,7 @@
                         <input style="font-family: Arial, Helvetica, sans-serif;" class="text-sm outline-none" type="text">  
                     </div>
                     <!-- boton agregar invitados -->
-                    <div id="botonCantidadInviGrande" class="border-1 border-gray-100 h-full w-[35%] flex flex-col justify-center py-1 px-4">
+                    <div id="botonCantidadInviGrande" class="cursor-pointer border-1 border-gray-100 h-full w-[35%] flex flex-col justify-center py-1 px-4">
                         <p style="font-family: Mulish, sans-serif;" class="text-[8px] font-semibold">
                             GUESTS
                         </p>
@@ -58,7 +58,7 @@
                     </div>
                     <!-- boton buscar --> 
                     <div class="border-1 border-gray-100 h-full w-[30%] rounded-r-xl flex items-center justify-center">
-                        <button class="bg-red-400 h-[80%] w-30 rounded-xl flex items-center justify-between px-6">
+                        <button class="cursor-pointer bg-red-400 h-[80%] w-30 rounded-xl flex items-center justify-between px-6">
                             <svg  class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                             </svg>
@@ -82,13 +82,13 @@
                                 Ages 13 or above
                             </p>
                             <div class="w-25 flex items-center justify-between self-start">
-                                <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
                                     -
                                 </button>
                                 <p>
                                     0
                                 </p>
-                                <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
                                     +
                                 </button>
                             </div>
@@ -101,13 +101,13 @@
                                 Ages 13 or above
                             </p>
                             <div class="w-25 flex items-center justify-between self-start">
-                                <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
                                     -
                                 </button>
                                 <p>
                                     0
                                 </p>
-                                <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
                                     +
                                 </button>
                             </div>
@@ -117,9 +117,9 @@
             </section>
         </nav>
     </header>        
-    <main class="w-80 sm:w-160 lg:w-250 transition-all duration-300">
+    <main class="w-80 sm:w-170 lg:w-250 transition-all duration-300">
         <!-- buscador mobile -->
-        <section style="font-family: Mulish, sans-serif;" id="botonBuscarMobile" class="text-xs sm:hidden h-20 flex items-center justify-center">
+        <section id="botonBuscarMobile" class="text-xs sm:hidden h-20 flex items-center justify-center" style="font-family: Mulish, sans-serif;" >
             <button class="flex items-center justify-center h-[65%] w-[82%] rounded-2xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
                 <div class="border-1 border-gray-100 rounded-l-2xl h-full w-[45%] flex items-center justify-center p-2">
                     <p class="flex items-center justify-center text-gray-400 h-[90%] w-[90%]">
@@ -139,8 +139,8 @@
             </button>
         </section>
         <!-- modal mobile-->
-        <nav id="modalBuscarMobile" class="hidden sm:hidden bg-slate-900/50 inset-0 z-50">
-            <section class="bg-white h-180 px-4 flex flex-col items-center justify-start">
+        <nav id="contenModalBuscarMobile" class="fixed bg-slate-900/50 inset-0 z-50 opacity-0 duration-600 pointer-events-none">
+            <section id="modalBuscarMobile" class="bg-white h-180 px-4 flex flex-col items-center justify-start -translate-y-full duration-600">
                 <div style="font-family: Mulish, sans-serif;" class="h-15 w-full flex items-center justify-center">
                     <h6 class="w-[90%] text-[11px] font-semibold">
                         Edit your search

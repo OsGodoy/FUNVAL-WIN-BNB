@@ -11,6 +11,7 @@
 function funcionalidadBotones() {
 
 let botonBuscarMobile = document.querySelector("#botonBuscarMobile")
+let contenModalBuscarMobile = document.querySelector("#contenModalBuscarMobile")
 let modalBuscarMobile = document.querySelector("#modalBuscarMobile")
 let cerrarBuscarMobile = document.querySelector("#cerrarBuscarMobile")
 
@@ -21,14 +22,18 @@ let botonLocacionMobile = document.querySelector("#botonLocacionMobile")
 let selectLocacionMobile = document.querySelector("#selectLocacionMobile")
 
 botonBuscarMobile.addEventListener("click", function(){
-    if (modalBuscarMobile.classList.contains("hidden")){
-        modalBuscarMobile.classList.replace("hidden","fixed")        
+    if (contenModalBuscarMobile.classList.contains("opacity-0")){
+        contenModalBuscarMobile.classList.replace("opacity-0","opacity-100")
+        contenModalBuscarMobile.classList.remove("pointer-events-none")
+        modalBuscarMobile.classList.add("translate-y-0")        
     }
 })
 
 cerrarBuscarMobile.addEventListener("click", function(){
-    if (modalBuscarMobile.classList.contains("fixed")){
-        modalBuscarMobile.classList.replace("fixed","hidden")
+    if (contenModalBuscarMobile.classList.contains("opacity-100")){
+        contenModalBuscarMobile.classList.replace("opacity-100","opacity-0")
+        modalBuscarMobile.classList.replace("translate-y-0","-translate-y-full")
+        contenModalBuscarMobile.classList.add("pointer-events-none")
         cantidadInviMobile.classList.replace("opacity-100","opacity-0")
         selectLocacionMobile.classList.replace("opacity-100","opacity-0")
         cantidadInviMobile.classList.add("pointer-events-none")
@@ -61,6 +66,7 @@ botonCantidadInviMobile.addEventListener("click", function(){
 // botones grandes
 
 let botonBuscarGrande = document.querySelector("#botonBuscarGrande")
+let contenModalBuscarGrande = document.querySelector("#contenModalBuscarGrande")
 let modalBuscarGrande = document.querySelector("#modalBuscarGrande")
 
 let botonCantidadInviGrande = document.querySelector("#botonCantidadInviGrande")
@@ -70,21 +76,28 @@ let botonLocacionGrande = document.querySelector("#botonLocacionGrande")
 let selectLocacionGrande = document.querySelector("#selectLocacionGrande")
 
 botonBuscarGrande.addEventListener("click",function(){
-    if (modalBuscarGrande.classList.contains("hidden")){
-        modalBuscarGrande.classList.replace("hidden","fixed")
+    if (contenModalBuscarGrande.classList.contains("opacity-0")){
+        contenModalBuscarGrande.classList.replace("opacity-0","opacity-100")
+        contenModalBuscarGrande.classList.remove("pointer-events-none")
+        modalBuscarGrande.classList.add("translate-y-0")
     }
 })
 
 // cerrar modal grande
-modalBuscarGrande.addEventListener("click",function(e){
-    if (e.target === modalBuscarGrande){
-        modalBuscarGrande.classList.replace("fixed","hidden")
-        selectLocacionGrande.classList.replace("opacity-100","opacity-0")
-        selectLocacionGrande.classList.add("pointer-events-none")
-        cantidadInviGrande.classList.replace("opacity-100","opacity-0")
-        cantidadInviGrande.classList.add("pointer-events-none") 
-        botonLocacionGrande.classList.replace("border-red-400","border-gray-100")
-        botonCantidadInviGrande.classList.replace("border-red-400","border-gray-100")
+contenModalBuscarGrande.addEventListener("click",function(e){
+    if (e.target === contenModalBuscarGrande){
+        if (contenModalBuscarGrande.classList.contains("opacity-100")){
+            contenModalBuscarGrande.classList.replace("opacity-100","opacity-0")
+            contenModalBuscarGrande.classList.add("pointer-events-none")
+            modalBuscarGrande.classList.replace("translate-y-0","-translate-y-full")
+            selectLocacionGrande.classList.replace("opacity-100","opacity-0")
+            selectLocacionGrande.classList.add("pointer-events-none")
+            cantidadInviGrande.classList.replace("opacity-100","opacity-0")
+            cantidadInviGrande.classList.add("pointer-events-none") 
+            botonLocacionGrande.classList.replace("border-red-400","border-gray-100")
+            botonCantidadInviGrande.classList.replace("border-red-400","border-gray-100")
+        }
+        
     }
 })
 //--------
