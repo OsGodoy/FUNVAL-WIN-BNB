@@ -131,21 +131,21 @@ botonCantidadInviGrande.addEventListener("click",function(){
 
 // funcionalidad de los botones // fin
 
-// funcionalidad para calcular invitados mobile // inicio
+// funcionalidad para calcular huespedes mobile // inicio
 
 export {calcularHuespedesMobile}
 
 function calcularHuespedesMobile() {
+
 let cantidadAdultosMobile = document.querySelector("#cantidadAdultosMobile")
-
 let cantidadPequesMobile = document.querySelector("#cantidadPequesMobile")
-
 let totalMobile = document.querySelector("#totalMobile")
 
 let cantidadAdultosSelec = 0
 let cantidadPequesSelec = 0
 
 cantidadInviMobile.addEventListener("click",event => {
+    
     if (event.target.classList.contains("masAdultos")){
         cantidadAdultosSelec ++ 
     }
@@ -170,5 +170,47 @@ cantidadInviMobile.addEventListener("click",event => {
     cantidadAdultosMobile.textContent = cantidadAdultosSelec
     totalMobile.classList.replace("text-gray-300","text-gray-700")
     totalMobile.textContent = cantidadAdultosSelec + cantidadPequesSelec
+    })
+}
+
+// funcionalidad para calcular huespedes grande // inicio
+
+export {calcularHuespedesGrande}
+
+function calcularHuespedesGrande() {
+
+let cantidadAdultosGrande = document.querySelector("#cantidadAdultosGrande")
+let cantidadPequesGrande = document.querySelector("#cantidadPequesGrande")
+let totalGrande = document.querySelector("#totalGrande")
+
+let cantidadAdultosSelec = 0
+let cantidadPequesSelec = 0
+
+cantidadInviGrande.addEventListener("click",event => {
+    
+    if (event.target.classList.contains("masAdultos")){
+        cantidadAdultosSelec ++ 
+    }
+
+    if (event.target.classList.contains("menosAdultos")){
+        if (cantidadAdultosSelec > 0){
+            cantidadAdultosSelec --
+        }
+    }
+
+    if (event.target.classList.contains("masPeques")){
+        cantidadPequesSelec ++
+    }
+
+    if (event.target.classList.contains("menosPeques")){
+        if (cantidadPequesSelec > 0){
+            cantidadPequesSelec --
+        }
+    }
+
+    cantidadPequesGrande.textContent = cantidadPequesSelec
+    cantidadAdultosGrande.textContent = cantidadAdultosSelec
+    totalGrande.classList.replace("text-gray-300","text-gray-700")
+    totalGrande.textContent = cantidadAdultosSelec + cantidadPequesSelec
     })
 }

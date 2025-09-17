@@ -4,15 +4,24 @@
  * que define el comportamiento del programa.
  */
 
+
+/// FUNCIONES IMPORTADAS /// INICIO
+
+
 import { funcionalidadBotones } from "./utils.js";
 funcionalidadBotones()
 
 import { calcularHuespedesMobile } from "./utils.js"
 calcularHuespedesMobile()
 
+import { calcularHuespedesGrande } from "./utils.js"
+calcularHuespedesGrande()
+
 import { stays } from "./stays.js";
 
-console.log(stays);
+
+/// FUNCIONES IMPORTADAS /// FIN
+
 
 // INSERTANDO CATALOGO
 
