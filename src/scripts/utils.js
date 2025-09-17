@@ -131,50 +131,44 @@ botonCantidadInviGrande.addEventListener("click",function(){
 
 // funcionalidad de los botones // fin
 
-// funcionalidad para sumar adultos // inicio
+// funcionalidad para calcular invitados mobile // inicio
 
+export {calcularHuespedesMobile}
+
+function calcularHuespedesMobile() {
 let cantidadAdultosMobile = document.querySelector("#cantidadAdultosMobile")
-let masAdultosMobile = document.querySelector("#masAdultosMobile")
-let menosAdultosMobile = document.querySelector("#menosAdultosMobile")
-
-let cantidadAdultosSelecMobile = 0
-
-masAdultosMobile.addEventListener("click",function(){
-    cantidadAdultosSelecMobile ++
-    cantidadAdultosMobile.textContent = `${cantidadAdultosSelecMobile}`    
-})
-
-menosAdultosMobile.addEventListener("click",function(){
-    if(cantidadAdultosSelecMobile > 0){
-        cantidadAdultosSelecMobile --
-        cantidadAdultosMobile.textContent = `${cantidadAdultosSelecMobile}`
-    }
-})
-
-// funcionalidad para sumar adultos // fin
-
-
-// funcionalidad para sumar peques // inicio
 
 let cantidadPequesMobile = document.querySelector("#cantidadPequesMobile")
-let masPequesMobile = document.querySelector("#masPequesMobile")
-let menosPequesMobile = document.querySelector("#menosPequesMobile")
 
-let cantidadPequesSelecMobile = 0
+let totalMobile = document.querySelector("#totalMobile")
 
-masPequesMobile.addEventListener("click",function(){
-    cantidadPequesSelecMobile ++
-    cantidadPequesMobile.textContent = `${cantidadPequesSelecMobile}`
-    console.log(cantidadPequesSelecMobile);    
-})
+let cantidadAdultosSelec = 0
+let cantidadPequesSelec = 0
 
-
-menosPequesMobile.addEventListener("click",function(){
-    if(cantidadPequesSelecMobile > 0){
-        cantidadPequesSelecMobile --
-        cantidadPequesMobile.textContent = `${cantidadPequesSelecMobile}`
-        console.log(cantidadPequesSelecMobile); 
+cantidadInviMobile.addEventListener("click",event => {
+    if (event.target.classList.contains("masAdultos")){
+        cantidadAdultosSelec ++ 
     }
-})
 
-// funcionalidad para sumar peques // fin
+    if (event.target.classList.contains("menosAdultos")){
+        if (cantidadAdultosSelec > 0){
+            cantidadAdultosSelec --
+        }
+    }
+
+    if (event.target.classList.contains("masPeques")){
+        cantidadPequesSelec ++
+    }
+
+    if (event.target.classList.contains("menosPeques")){
+        if (cantidadPequesSelec > 0){
+            cantidadPequesSelec --
+        }
+    }
+
+    cantidadPequesMobile.textContent = cantidadPequesSelec
+    cantidadAdultosMobile.textContent = cantidadAdultosSelec
+    totalMobile.classList.replace("text-gray-300","text-gray-700")
+    totalMobile.textContent = cantidadAdultosSelec + cantidadPequesSelec
+    })
+}

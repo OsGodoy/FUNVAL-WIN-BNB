@@ -7,6 +7,9 @@
 import { funcionalidadBotones } from "./utils.js";
 funcionalidadBotones()
 
+import { calcularHuespedesMobile } from "./utils.js"
+calcularHuespedesMobile()
+
 import { stays } from "./stays.js";
 
 console.log(stays);
