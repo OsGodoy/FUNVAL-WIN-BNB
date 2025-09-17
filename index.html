@@ -39,21 +39,23 @@
         <!-- modal grande-->
         <nav id="contenModalBuscarGrande" class="fixed bg-slate-900/50 inset-0 z-50 opacity-0 duration-600 pointer-events-none">
             <section id="modalBuscarGrande" class="bg-white h-115 xl:h-150 flex flex-col items-center xl:justify-start xl:py-20 justify-center gap-8 -translate-y-full duration-600">
-                <div class="h-10 w-150 lg:w-250 flex items-center justify-center rounded-xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
+                <div class="h-12 w-150 lg:w-250 flex items-center justify-center rounded-xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
                     <!-- boton agregar locacion -->
-                    <div id="botonLocacionGrande" class="border-1 border-gray-100 h-full w-[35%] rounded-l-xl flex flex-col justify-center py-1 px-4">
-                        <p style="font-family: Mulish, sans-serif;" class="text-[8px] font-semibold">
+                    <div id="botonLocacionGrande" class="cursor-pointer border-1 border-gray-100 h-full w-[35%] rounded-l-xl flex flex-col justify-center py-1 px-4">
+                        <p class="text-[8px] font-semibold">
                             LOCATION
                         </p>
-                        <input style="font-family: Arial, Helvetica, sans-serif;" class="text-sm outline-none" type="text">  
+                        <p id="ubiSelecGrande" class="text-gray-300 text-sm font-medium" style="font-family: Arial, Helvetica, sans-serif">
+                            Add location
+                        </p>
                     </div>
                     <!-- boton agregar invitados -->
                     <div id="botonCantidadInviGrande" class="cursor-pointer border-1 border-gray-100 h-full w-[35%] flex flex-col justify-center py-1 px-4">
-                        <p style="font-family: Mulish, sans-serif;" class="text-[8px] font-semibold">
+                        <p class="text-[8px] font-semibold">
                             GUESTS
                         </p>
-                        <p class="opacity-0 pointer-events-none text-sm">
-                            guests
+                        <p class="text-gray-300 text-sm" style="font-family: Arial, Helvetica, sans-serif">
+                            Add guests
                         </p>  
                     </div>
                     <!-- boton buscar --> 
@@ -68,12 +70,26 @@
                         </button>
                     </div>                 
                 </div>
-                <!-- agregar cantidad invitados -->
-                <div style="font-family: Mulish, sans-serif;" class="h-60 w-150 lg:w-250 flex items-start justify-start gap-2">
-                    <div id="selectLocacionGrande" class="h-full w-[35%] flex flex-col px-2 gap-8 opacity-0 pointer-events-none">
-                           
+                <!-- editar busqueda grande -->
+                <div class="h-60 w-150 lg:w-250 flex items-start justify-start gap-2" style="font-family: Mulish, sans-serif;">
+                    <!-- elegir locacion grande -->
+                    <div id="selectLocacionGrande" class="h-full w-[35%] flex flex-col px-2 gap-8 opacity-0 duration-500 pointer-events-none">
+                        <div>
+                            <ul id="ubiGrande" class="flex flex-col">
+                                
+                                <!-- AGREGADO EN JS
+                                <li class="p-1 h-8 gap-1 flex items-center justify-start" value="Ubicacion1">
+                                    <svg class="size-4 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 0 0 2.273 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clip-rule="evenodd" />
+                                    </svg>
+                                    Ubicacion1
+                                </li> -->
+
+                            </ul>
+                        </div>   
                     </div>
-                    <div id="cantidadInviGrande" class="h-full w-[35%] flex flex-col px-2 gap-8 opacity-0 pointer-events-none">
+                    <!-- cantidad invitados grande -->
+                    <div id="cantidadInviGrande" class="h-full w-[35%] flex flex-col px-2 gap-8 opacity-0 duration-500 pointer-events-none">
                         <div>
                             <p class="text-sm font-medium">
                                 Adults
@@ -81,14 +97,14 @@
                             <p class="text-sm text-gray-400">
                                 Ages 13 or above
                             </p>
-                            <div class="w-25 flex items-center justify-between self-start">
+                            <div id="menosAdultos" class="w-25 flex items-center justify-between self-start">
                                 <button class="cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
                                     -
                                 </button>
-                                <p>
+                                <p id="cantidadAdultos">
                                     0
                                 </p>
-                                <button class="cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button id="masAdultos" class="cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
                                     +
                                 </button>
                             </div>
@@ -98,7 +114,7 @@
                                 Children
                             </p>
                             <p class="text-sm text-gray-400">
-                                Ages 13 or above
+                                Ages 2-12
                             </p>
                             <div class="w-25 flex items-center justify-between self-start">
                                 <button class="cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
@@ -119,7 +135,7 @@
     </header>        
     <main class="w-80 sm:w-170 lg:w-250 transition-all duration-300">
         <!-- buscador mobile -->
-        <section id="botonBuscarMobile" class="text-xs sm:hidden h-20 flex items-center justify-center" style="font-family: Mulish, sans-serif;" >
+        <section id="botonBuscarMobile" class="text-xs sm:hidden h-20 flex items-center justify-center">
             <button class="flex items-center justify-center h-[65%] w-[82%] rounded-2xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
                 <div class="border-1 border-gray-100 rounded-l-2xl h-full w-[45%] flex items-center justify-center p-2">
                     <p class="flex items-center justify-center text-gray-400 h-[90%] w-[90%]">
@@ -140,80 +156,101 @@
         </section>
         <!-- modal mobile-->
         <nav id="contenModalBuscarMobile" class="fixed bg-slate-900/50 inset-0 z-50 opacity-0 duration-600 pointer-events-none">
-            <section id="modalBuscarMobile" class="bg-white h-180 px-4 flex flex-col items-center justify-start -translate-y-full duration-600">
-                <div style="font-family: Mulish, sans-serif;" class="h-15 w-full flex items-center justify-center">
-                    <h6 class="w-[90%] text-[11px] font-semibold">
-                        Edit your search
-                    </h6>
-                    <button id="cerrarBuscarMobile" class="w-[10%] font-bold">
-                        X
-                    </button>
-                </div>
-                <div style="font-family: Mulish, sans-serif;" class="h-35 w-full flex flex-col items-center justify-center rounded-2xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
+            <section id="modalBuscarMobile" class="bg-white h-180 px-4 flex flex-col items-center justify-between -translate-y-full duration-600">
+                <div class="w-full h-45">
+                    <div style="font-family: Mulish, sans-serif;" class="h-15 w-full flex items-center justify-center">
+                        <h6 class="w-[90%] text-[11px] font-semibold">
+                            Edit your search
+                        </h6>
+                        <button id="cerrarBuscarMobile" class="text-red-400 w-[10%] font-semibold text-xl" style="font-family: Montserrat, sans-serif;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div style="font-family: Mulish, sans-serif;" class="h-25 w-full flex flex-col items-center justify-center rounded-2xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
                     <!-- boton agregar locacion -->
-                    <div id="botonLocacionMobile" class="border-1 border-gray-100 h-[50%] w-full rounded-t-2xl flex flex-col justify-center px-4">
-                        <p class="text-[8px] font-semibold">
-                            LOCATION
-                        </p>
-                        <input style="font-family: Arial, Helvetica, sans-serif" class="text-sm font-medium outline-none" type="text">  
-                    </div>
-                    <!-- boton cantidad invitados -->
-                    <div id="botonCantidadInviMobile" class="border-1 border-gray-100 h-[50%] w-full rounded-b-2xl flex flex-col justify-center px-4">
-                        <p class="text-[8px] font-semibold">
-                            GUESTS
-                        </p>
-                        <p style="font-family: Arial, Helvetica, sans-serif" class="opacity-0 pointer-events-none text-sm font-medium">
-                            guests
-                        </p>  
-                    </div>                  
-                </div>
-                <!-- elegir locacion -->
-                <div id="selectLocacionMobile" class="border h-60 w-full flex flex-col items-center justify-center py-4 opacity-0 pointer-events-none">
-                    
-                </div>
-                <!-- cantidad invitados -->
-                <div style="font-family: Mulish, sans-serif;" id="cantidadInviMobile" class="h-60 w-full flex flex-col items-center justify-center py-4 opacity-0 pointer-events-none">
-                    <div class="h-[50%] w-[95%] flex flex-col gap-1">
-                        <p class="text-sm font-medium">
-                            Adults
-                        </p>
-                        <p class="text-sm text-gray-400">
-                            Ages 13 or above
-                        </p>
-                        <div class="w-28 flex items-center justify-between self-start">
-                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
-                                -
-                            </button>
-                            <p>
-                                0
+                        <div id="botonLocacionMobile" class="border-1 border-gray-100 h-[50%] w-full rounded-t-2xl flex flex-col justify-center px-4">
+                            <p class="text-[8px] font-semibold">
+                                LOCATION
                             </p>
-                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
-                                +
-                            </button>
+                            <p id="ubiSelecMobile2" class="text-gray-300 text-[14px] font-medium" style="font-family: Arial, Helvetica, sans-serif" >
+                                Add location
+                            </p>   
                         </div>
-                    </div>
-                    <div class="h-[50%] w-[95%] flex flex-col gap-1">
-                        <p class="text-sm font-medium">
-                            Children
-                        </p>
-                        <p class="text-sm text-gray-400">
-                            Ages 13 or above
-                        </p>
-                        <div class="w-28 flex items-center justify-between self-start">
-                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
-                                -
-                            </button>
-                            <p>
-                                0
+                    <!-- boton cantidad invitados -->
+                        <div id="botonCantidadInviMobile" class="border-1 border-gray-100 h-[50%] w-full rounded-b-2xl flex flex-col justify-center px-4">
+                            <p class="text-[8px] font-semibold">
+                                GUESTS
                             </p>
-                            <button class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
-                                +
-                            </button>
+                            <p id="totalMobile" class="text-gray-300 text-[14px] font-medium" style="font-family: Arial, Helvetica, sans-serif">
+                                Add guests
+                            </p>  
+                        </div>                  
+                    </div>
+                </div>
+                <!-- editar busqueda -->
+                <div class="w-full h-110 flex items-center justify-center">
+                    <!-- elegir locacion -->
+                    <div id="selectLocacionMobile" class="h-110 w-[85%] absolute flex flex-col items-center justify-start py-4 opacity-0 pointer-events-none duration-500" style="font-family: Mulish, sans-serif;">
+                        <div class="w-[95%] flex flex-col justify-start gap-1">
+                            <ul id="ubiMobile" class="flex flex-col">
+                                
+                                <!-- AGREGADO EN JS
+                                <li class="p-1 h-8 gap-1 flex items-center justify-start" value="Ubicacion1">
+                                    <svg class="size-4 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 0 0 2.273 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clip-rule="evenodd" />
+                                    </svg>
+                                    Ubicacion
+                                </li> -->
+
+                            </ul>
+                        </div>    
+                    </div>
+                    <!-- cantidad invitados -->
+                    <div id="cantidadInviMobile" class="h-110 w-[85%] absolute flex flex-col items-center justify-start py-4 opacity-0 pointer-events-none duration-500" style="font-family: Mulish, sans-serif;" >
+                        <div class="h-[28%] w-[95%] flex flex-col justify-start gap-1">
+                            <p class="text-sm font-medium">
+                                Adults
+                            </p>
+                            <p class="text-sm text-gray-400">
+                                Ages 13 or above
+                            </p>
+                            <div class="w-28 flex items-center justify-between self-start">
+                                <button id="menosAdultosMobile" class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                    -
+                                </button>
+                                <p id="cantidadAdultosMobile">
+                                    0
+                                </p>
+                                <button id="masAdultosMobile" class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                        <div class="h-[28%] w-[95%] flex flex-col justify-start gap-1">
+                            <p class="text-sm font-medium">
+                                Children
+                            </p>
+                            <p class="text-sm text-gray-400">
+                                Ages 2-12
+                            </p>
+                            <div class="w-28 flex items-center justify-between self-start">
+                                <button id="menosPequesMobile" class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                    -
+                                </button>
+                                <p id="cantidadPequesMobile">
+                                    0
+                                </p>
+                                <button id="masPequesMobile" class="border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                    +
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- boton buscar -->
-                <div class="h-78 w-full p-4 flex items-end justify-center">
+                <div class="h-20 w-full p-4 flex items-center justify-center">
                     <button class="bg-red-400 h-10 w-30 rounded-2xl flex items-center justify-between px-6">
                         <svg  class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -236,7 +273,9 @@
         </section>
         <!-- catalogo -->
         <section id="catalogoConten" class="grid grid-cols-1 sm:grid-cols-2 place-items-center px-4 gap-1 sm:gap-4 lg:grid-cols-3">
-            <!-- <div class="w-full flex flex-col items-center justify-center gap-2 py-2">
+            
+            <!-- AGREGADO EN JS
+            <div class="w-full flex flex-col items-center justify-center gap-2 py-2">
                 <img class="h-50 sm:h-55 lg:h-60 w-full rounded-2xl" src="${photo}" alt="">
                 <div class="w-[95%] flex items-center justify-between">
                     <div class="hidden items-center justify-center border h-8 w-[44%] rounded-xl border-red-400">
@@ -260,6 +299,7 @@
                     ${title}
                 </p>
             </div> -->
+
         </section>    
     </main>
 </body>

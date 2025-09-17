@@ -8,6 +8,8 @@
 
 // botones mobile 
 
+export {funcionalidadBotones}
+
 function funcionalidadBotones() {
 
 let botonBuscarMobile = document.querySelector("#botonBuscarMobile")
@@ -35,8 +37,9 @@ cerrarBuscarMobile.addEventListener("click", function(){
         modalBuscarMobile.classList.replace("translate-y-0","-translate-y-full")
         contenModalBuscarMobile.classList.add("pointer-events-none")
         cantidadInviMobile.classList.replace("opacity-100","opacity-0")
-        selectLocacionMobile.classList.replace("opacity-100","opacity-0")
         cantidadInviMobile.classList.add("pointer-events-none")
+        selectLocacionMobile.classList.replace("opacity-100","opacity-0")
+        selectLocacionMobile.classList.add("pointer-events-none")
         botonLocacionMobile.classList.replace("border-red-400","border-gray-100")
         botonCantidadInviMobile.classList.replace("border-red-400","border-gray-100")
     }
@@ -46,10 +49,10 @@ botonLocacionMobile.addEventListener("click",function(){
     if (selectLocacionMobile.classList.contains("opacity-0")){
         selectLocacionMobile.classList.replace("opacity-0","opacity-100")
         selectLocacionMobile.classList.remove("pointer-events-none")
+        cantidadInviMobile.classList.add("pointer-events-none")
         botonLocacionMobile.classList.replace("border-gray-100","border-red-400")
         botonCantidadInviMobile.classList.replace("border-red-400","border-gray-100")
         cantidadInviMobile.classList.replace("opacity-100","opacity-0")
-        cantidadInviMobile.classList.add("pointer-events-none")
     }
 })
 
@@ -58,6 +61,7 @@ botonCantidadInviMobile.addEventListener("click", function(){
         cantidadInviMobile.classList.replace("opacity-0","opacity-100")
         cantidadInviMobile.classList.remove("pointer-events-none")
         selectLocacionMobile.classList.replace("opacity-100","opacity-0")
+        selectLocacionMobile.classList.add("pointer-events-none")
         botonCantidadInviMobile.classList.replace("border-gray-100","border-red-400")
         botonLocacionMobile.classList.replace("border-red-400","border-gray-100")
     }
@@ -125,6 +129,52 @@ botonCantidadInviGrande.addEventListener("click",function(){
 })
 }
 
-export {funcionalidadBotones}
-
 // funcionalidad de los botones // fin
+
+// funcionalidad para sumar adultos // inicio
+
+let cantidadAdultosMobile = document.querySelector("#cantidadAdultosMobile")
+let masAdultosMobile = document.querySelector("#masAdultosMobile")
+let menosAdultosMobile = document.querySelector("#menosAdultosMobile")
+
+let cantidadAdultosSelecMobile = 0
+
+masAdultosMobile.addEventListener("click",function(){
+    cantidadAdultosSelecMobile ++
+    cantidadAdultosMobile.textContent = `${cantidadAdultosSelecMobile}`    
+})
+
+menosAdultosMobile.addEventListener("click",function(){
+    if(cantidadAdultosSelecMobile > 0){
+        cantidadAdultosSelecMobile --
+        cantidadAdultosMobile.textContent = `${cantidadAdultosSelecMobile}`
+    }
+})
+
+// funcionalidad para sumar adultos // fin
+
+
+// funcionalidad para sumar peques // inicio
+
+let cantidadPequesMobile = document.querySelector("#cantidadPequesMobile")
+let masPequesMobile = document.querySelector("#masPequesMobile")
+let menosPequesMobile = document.querySelector("#menosPequesMobile")
+
+let cantidadPequesSelecMobile = 0
+
+masPequesMobile.addEventListener("click",function(){
+    cantidadPequesSelecMobile ++
+    cantidadPequesMobile.textContent = `${cantidadPequesSelecMobile}`
+    console.log(cantidadPequesSelecMobile);    
+})
+
+
+menosPequesMobile.addEventListener("click",function(){
+    if(cantidadPequesSelecMobile > 0){
+        cantidadPequesSelecMobile --
+        cantidadPequesMobile.textContent = `${cantidadPequesSelecMobile}`
+        console.log(cantidadPequesSelecMobile); 
+    }
+})
+
+// funcionalidad para sumar peques // fin
