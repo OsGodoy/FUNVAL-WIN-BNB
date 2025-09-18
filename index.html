@@ -20,7 +20,7 @@
             <img class="h-full" src="src/images/icons/logo-f7862584.svg" alt="">
         </div>
         <!-- buscador grande -->
-        <div id="botonBuscarGrande" class="cursor-pointer hover:scale-105 duration-300 hidden sm:flex justify-self-end items-center justify-center h-[55%] w-[45%] lg:w-[30%] rounded-xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
+        <div id="botonBuscarGrande" class="cursor-pointer hover:scale-105 duration-300 hidden sm:flex justify-self-end items-center justify-center h-[55%] w-[45%] lg:w-[30%] rounded-xl shadow-[0_0_8px_rgba(0,0,0,0.12)] active:scale-95 lg:active:scale-105">
             <div class="border-1 border-gray-100 rounded-l-xl h-full w-[45%] flex items-center justify-center p-2">
                 <p style="font-family: Mulish, sans-serif;" class="flex items-center justify-center text-gray-400 text-xs h-[90%] w-[90%]">
                     Add location
@@ -46,7 +46,7 @@
                         <p class="text-[8px] font-semibold">
                             LOCATION
                         </p>
-                        <p id="ubiSelecGrande" class="text-gray-300 text-sm font-medium" style="font-family: Arial, Helvetica, sans-serif">
+                        <p id="locacionSelecGrande" class="text-gray-300 text-sm font-medium" style="font-family: Arial, Helvetica, sans-serif">
                             Add location
                         </p>
                     </div>
@@ -61,7 +61,7 @@
                     </div>
                     <!-- boton buscar --> 
                     <div class="border-1 border-gray-100 h-full w-[30%] rounded-r-xl flex items-center justify-center">
-                        <button class="cursor-pointer bg-red-400 h-[80%] w-30 rounded-xl flex items-center justify-between px-6">
+                        <button class="cursor-pointer bg-red-400 h-[80%] w-30 rounded-xl flex items-center justify-between px-6 duration-100 active:scale-95 lg:active:scale-105 hover:scale-105 lg:duration-300">
                             <svg  class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                             </svg>
@@ -76,10 +76,10 @@
                     <!-- elegir locacion grande -->
                     <div id="selectLocacionGrande" class="h-full w-[35%] flex flex-col px-2 gap-8 opacity-0 duration-500 pointer-events-none">
                         <div>
-                            <ul id="ubiGrande" class="flex flex-col">
+                            <ul id="locacionesGrande" class="flex flex-col">
                                 
                                 <!-- AGREGADO EN JS
-                                <li class="p-1 h-8 gap-1 flex items-center justify-start" value="Ubicacion1">
+                                <li class="p-1 h-8 gap-1 flex items-center justify-start">
                                     <svg class="size-4 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 0 0 2.273 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clip-rule="evenodd" />
                                     </svg>
@@ -99,13 +99,13 @@
                                 Ages 13 or above
                             </p>
                             <div class="w-25 flex items-center justify-between self-start">
-                                <button class="menosAdultos cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="menosAdultos cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm duration-100 active:scale-90">
                                     -
                                 </button>
                                 <p id="cantidadAdultosGrande">
                                     0
                                 </p>
-                                <button class="masAdultos cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="masAdultos cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm duration-100 active:scale-90">
                                     +
                                 </button>
                             </div>
@@ -118,13 +118,13 @@
                                 Ages 2-12
                             </p>
                             <div class="w-25 flex items-center justify-between self-start">
-                                <button class="menosPeques cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="menosPeques cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm duration-100 active:scale-90">
                                     -
                                 </button>
                                 <p id="cantidadPequesGrande">
                                     0
                                 </p>
-                                <button class="masPeques cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="masPeques cursor-pointer border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm duration-100 active:scale-90">
                                     +
                                 </button>
                             </div>
@@ -136,7 +136,7 @@
     </header>        
     <main class="w-80 sm:w-170 lg:w-250 transition-all duration-300">
         <!-- buscador mobile -->
-        <section id="botonBuscarMobile" class="text-xs sm:hidden h-20 flex items-center justify-center">
+        <section id="botonBuscarMobile" class="text-xs sm:hidden h-20 flex items-center justify-center duration-200 active:scale-95">
             <button class="flex items-center justify-center h-[65%] w-[82%] rounded-2xl shadow-[0_0_8px_rgba(0,0,0,0.12)]">
                 <div class="border-1 border-gray-100 rounded-l-2xl h-full w-[45%] flex items-center justify-center p-2">
                     <p class="flex items-center justify-center text-gray-400 h-[90%] w-[90%]">
@@ -163,6 +163,7 @@
                         <h6 class="w-[90%] text-[11px] font-semibold">
                             Edit your search
                         </h6>
+                        <!-- boton para cerrar el modal -->
                         <button id="cerrarBuscarMobile" class="text-red-400 w-[10%] font-semibold text-xl" style="font-family: Montserrat, sans-serif;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                             <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
@@ -175,7 +176,7 @@
                             <p class="text-[8px] font-semibold">
                                 LOCATION
                             </p>
-                            <p id="ubiSelecMobile2" class="text-gray-300 text-[14px] font-medium" style="font-family: Arial, Helvetica, sans-serif" >
+                            <p id="locacionSelecMobile" class="text-gray-300 text-[14px] font-medium" style="font-family: Arial, Helvetica, sans-serif" >
                                 Add location
                             </p>   
                         </div>
@@ -195,14 +196,13 @@
                     <!-- elegir locacion -->
                     <div id="selectLocacionMobile" class="h-110 w-[85%] absolute flex flex-col items-center justify-start py-4 opacity-0 pointer-events-none duration-500" style="font-family: Mulish, sans-serif;">
                         <div class="w-[95%] flex flex-col justify-start gap-1">
-                            <ul id="ubiMobile" class="flex flex-col">
+                            <ul id="locacionesMobile" class="flex flex-col">
                                 
-                                <!-- AGREGADO EN JS
-                                <li class="p-1 h-8 gap-1 flex items-center justify-start" value="Ubicacion1">
-                                    <svg class="size-4 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <!-- <li id="botonSelecMobile" class="p-1 h-8 gap-1 flex items-center justify-start">
+                                    <svg class="size-4 text-red-400" xmlns="http:www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 0 0 2.273 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clip-rule="evenodd" />
                                     </svg>
-                                    Ubicacion
+                                locaciones
                                 </li> -->
 
                             </ul>
@@ -218,13 +218,13 @@
                                 Ages 13 or above
                             </p>
                             <div class="w-28 flex items-center justify-between self-start">
-                                <button class="menosAdultos border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="menosAdultos border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm duration-200 active:scale-90">
                                     -
                                 </button>
                                 <p id="cantidadAdultosMobile">
                                     0
                                 </p>
-                                <button class="masAdultos border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="masAdultos border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm duration-200 active:scale-90">
                                     +
                                 </button>
                             </div>
@@ -237,13 +237,13 @@
                                 Ages 2-12
                             </p>
                             <div class="w-28 flex items-center justify-between self-start">
-                                <button class="menosPeques border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="menosPeques border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm duration-200 active:scale-90">
                                     -
                                 </button>
                                 <p id="cantidadPequesMobile">
                                     0
                                 </p>
-                                <button class="masPeques border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm">
+                                <button class="masPeques border-1 border-gray-400 bg-gray-200 text-gray-400 h-5 w-5 flex items-center justify-center rounded-sm duration-200 active:scale-90">
                                     +
                                 </button>
                             </div>
@@ -252,7 +252,7 @@
                 </div>
                 <!-- boton buscar -->
                 <div class="h-20 w-full p-4 flex items-center justify-center">
-                    <button class="bg-red-400 h-10 w-30 rounded-2xl flex items-center justify-between px-6">
+                    <button class="bg-red-400 h-10 w-30 rounded-2xl flex items-center justify-between px-6 duration-200 active:scale-95">
                         <svg  class="size-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                         </svg>
@@ -268,11 +268,14 @@
             <h2 class="font-bold text-xl text-gray-700">
                 Stays in Finland
             </h2>
-            <p class="text-[12px] text-gray-700">
-                12+ stays
+            <p id="cantidadCards" class="text-[12px] text-gray-700">
+                
             </p>
         </section>
         <!-- catalogo -->
+        <section id="catalogoCarga" class="grid grid-cols-1 sm:grid-cols-2 place-items-center px-4 gap-1 sm:gap-4 lg:grid-cols-3">
+
+        </section>
         <section id="catalogoConten" class="grid grid-cols-1 sm:grid-cols-2 place-items-center px-4 gap-1 sm:gap-4 lg:grid-cols-3">
             
             <!-- AGREGADO EN JS
