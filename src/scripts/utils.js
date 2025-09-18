@@ -214,3 +214,4 @@ cantidadInviGrande.addEventListener("click",event => {
     totalGrande.textContent = cantidadAdultosSelec + cantidadPequesSelec
     })
 }
+
