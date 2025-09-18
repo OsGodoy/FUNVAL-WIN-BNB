@@ -75,7 +75,7 @@ for (let i = 0; i < stays.length; i++) {
                             SUPER HOST
                         </p>
                     </div>` : ``}
-                    <h3 class="flex text-[13px] font-medium text-gray-500 p-1">
+                    <h3 class="flex text-[13px] font-medium text-gray-500 dark:text-gray-400 p-1">
                         ${type}. ${beds == null ? "-" : beds < 2 ? "1 bed" : beds + " beds"}
                     </h3>
                     <div class="w-[15%] flex items-center justify-center gap-1">
@@ -87,7 +87,7 @@ for (let i = 0; i < stays.length; i++) {
                         </p>
                     </div>
                 </div>
-                <p class="w-[98%] text-sm font-semibold text-gray-700 dark:text-gray-400 truncate px-1.5">
+                <p class="w-[98%] text-sm font-semibold text-gray-700 dark:text-gray-300 truncate px-1.5">
                     ${title}
                 </p>
             </div>`
