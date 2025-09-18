@@ -23,6 +23,8 @@ let cantidadInviMobile = document.querySelector("#cantidadInviMobile")
 let botonLocacionMobile = document.querySelector("#botonLocacionMobile")
 let selectLocacionMobile = document.querySelector("#selectLocacionMobile")
 
+let busquedaOkMobile = document.querySelector("#busquedaOkMobile")
+
 botonBuscarMobile.addEventListener("click", function(){
     if (contenModalBuscarMobile.classList.contains("opacity-0")){
         contenModalBuscarMobile.classList.replace("opacity-0","opacity-100")
@@ -42,6 +44,14 @@ cerrarBuscarMobile.addEventListener("click", function(){
         selectLocacionMobile.classList.add("pointer-events-none")
         botonLocacionMobile.classList.replace("border-red-400","border-gray-100")
         botonCantidadInviMobile.classList.replace("border-red-400","border-gray-100")
+    }
+})
+
+busquedaOkMobile.addEventListener("click", function(){
+    if (contenModalBuscarMobile.classList.contains("opacity-100")){
+        contenModalBuscarMobile.classList.replace("opacity-100","opacity-0")
+        modalBuscarMobile.classList.replace("translate-y-0","-translate-y-full")
+        contenModalBuscarMobile.classList.add("pointer-events-none")
     }
 })
 
@@ -79,6 +89,8 @@ let cantidadInviGrande = document.querySelector("#cantidadInviGrande")
 let botonLocacionGrande = document.querySelector("#botonLocacionGrande")
 let selectLocacionGrande = document.querySelector("#selectLocacionGrande")
 
+let busquedaOkGrande = document.querySelector("#busquedaOkGrande")
+
 botonBuscarGrande.addEventListener("click",function(){
     if (contenModalBuscarGrande.classList.contains("opacity-0")){
         contenModalBuscarGrande.classList.replace("opacity-0","opacity-100")
@@ -87,7 +99,6 @@ botonBuscarGrande.addEventListener("click",function(){
     }
 })
 
-// cerrar modal grande
 contenModalBuscarGrande.addEventListener("click",function(e){
     if (e.target === contenModalBuscarGrande){
         if (contenModalBuscarGrande.classList.contains("opacity-100")){
@@ -104,7 +115,14 @@ contenModalBuscarGrande.addEventListener("click",function(e){
         
     }
 })
-//--------
+
+busquedaOkGrande.addEventListener("click",function(){
+    if (contenModalBuscarGrande.classList.contains("opacity-100")){
+        contenModalBuscarGrande.classList.replace("opacity-100","opacity-0")
+        contenModalBuscarGrande.classList.add("pointer-events-none")
+        modalBuscarGrande.classList.replace("translate-y-0","-translate-y-full")
+    }
+})
 
 botonLocacionGrande.addEventListener("click",function(){
     if (selectLocacionGrande.classList.contains("opacity-0")){
