@@ -134,6 +134,7 @@ let locacionesGrande = document.querySelector("#locacionesGrande")
 locacionesMobile.addEventListener("click",event => {
     if (event.target.closest(".botonSelecLocacionMobile")){
         locacionSelecMobile.classList.replace("text-gray-300","text-gray-700")
+        locacionSelecMobile.classList.replace("dark:text-white/60","dark:text-black")
         locacionSelecMobile.textContent = event.target.textContent
         let locacionFiltrada = event.target.textContent.trim()
         let ciudadFiltrada = locacionFiltrada.split(",")[0].trim()
@@ -159,6 +160,7 @@ locacionesMobile.addEventListener("click",event => {
 locacionesGrande.addEventListener("click",event => {
     if (event.target.closest(".botonSelecLocacionGrande")){
         locacionSelecGrande.classList.replace("text-gray-300","text-gray-700")
+        locacionSelecGrande.classList.replace("dark:text-white/60","dark:text-black")
         locacionSelecGrande.textContent = event.target.textContent
         let locacionFiltrada = event.target.textContent.trim()
         let ciudadFiltrada = locacionFiltrada.split(",")[0].trim()

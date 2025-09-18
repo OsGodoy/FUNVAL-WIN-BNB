@@ -43,7 +43,10 @@ cerrarBuscarMobile.addEventListener("click", function(){
         selectLocacionMobile.classList.replace("opacity-100","opacity-0")
         selectLocacionMobile.classList.add("pointer-events-none")
         botonLocacionMobile.classList.replace("border-red-400","border-gray-100")
+        botonLocacionMobile.classList.replace("dark:border-rose-900","dark:border-white/50")
         botonCantidadInviMobile.classList.replace("border-red-400","border-gray-100")
+        botonCantidadInviMobile.classList.replace("dark:border-rose-900","dark:border-white/50")
+        
     }
 })
 
@@ -61,7 +64,9 @@ botonLocacionMobile.addEventListener("click",function(){
         selectLocacionMobile.classList.remove("pointer-events-none")
         cantidadInviMobile.classList.add("pointer-events-none")
         botonLocacionMobile.classList.replace("border-gray-100","border-red-400")
+        botonLocacionMobile.classList.replace("dark:border-white/50","dark:border-rose-900")
         botonCantidadInviMobile.classList.replace("border-red-400","border-gray-100")
+        botonCantidadInviMobile.classList.replace("dark:border-rose-900","dark:border-white/50")
         cantidadInviMobile.classList.replace("opacity-100","opacity-0")
     }
 })
@@ -73,7 +78,9 @@ botonCantidadInviMobile.addEventListener("click", function(){
         selectLocacionMobile.classList.replace("opacity-100","opacity-0")
         selectLocacionMobile.classList.add("pointer-events-none")
         botonCantidadInviMobile.classList.replace("border-gray-100","border-red-400")
+        botonCantidadInviMobile.classList.replace("dark:border-white/50","dark:border-rose-900")
         botonLocacionMobile.classList.replace("border-red-400","border-gray-100")
+        botonLocacionMobile.classList.replace("dark:border-rose-900","dark:border-white/50")
     }
 })
 
@@ -110,7 +117,9 @@ contenModalBuscarGrande.addEventListener("click",function(e){
             cantidadInviGrande.classList.replace("opacity-100","opacity-0")
             cantidadInviGrande.classList.add("pointer-events-none") 
             botonLocacionGrande.classList.replace("border-red-400","border-gray-100")
+            botonLocacionGrande.classList.replace("dark:border-rose-900","dark:border-white/50")
             botonCantidadInviGrande.classList.replace("border-red-400","border-gray-100")
+            botonCantidadInviGrande.classList.replace("dark:border-rose-900","dark:border-white/50")
         }
         
     }
@@ -129,7 +138,9 @@ botonLocacionGrande.addEventListener("click",function(){
         selectLocacionGrande.classList.replace("opacity-0","opacity-100")
         selectLocacionGrande.classList.remove("pointer-events-none")
         botonLocacionGrande.classList.replace("border-gray-100","border-red-400")
+        botonLocacionGrande.classList.replace("dark:border-white/50","dark:border-rose-900")
         botonCantidadInviGrande.classList.replace("border-red-400","border-gray-100")
+        botonCantidadInviGrande.classList.replace("dark:border-rose-900","dark:border-white/50")
         cantidadInviGrande.classList.replace("opacity-100","opacity-0")
         cantidadInviGrande.classList.add("pointer-events-none")
     }
@@ -140,7 +151,9 @@ botonCantidadInviGrande.addEventListener("click",function(){
         cantidadInviGrande.classList.replace("opacity-0","opacity-100")
         cantidadInviGrande.classList.remove("pointer-events-none")
         botonCantidadInviGrande.classList.replace("border-gray-100","border-red-400")
+        botonCantidadInviGrande.classList.replace("dark:border-white/50","dark:border-rose-900")
         botonLocacionGrande.classList.replace("border-red-400","border-gray-100")
+        botonLocacionGrande.classList.replace("dark:border-rose-900","dark:border-white/50")
         selectLocacionGrande.classList.replace("opacity-100","opacity-0")
         selectLocacionGrande.classList.add("pointer-events-none")
     }
@@ -187,6 +200,7 @@ cantidadInviMobile.addEventListener("click",event => {
     cantidadPequesMobile.textContent = cantidadPequesSelec
     cantidadAdultosMobile.textContent = cantidadAdultosSelec
     totalMobile.classList.replace("text-gray-300","text-gray-700")
+    totalMobile.classList.replace("dark:text-white/60","dark:text-black")
     totalMobile.textContent = cantidadAdultosSelec + cantidadPequesSelec
     })
 }
@@ -229,6 +243,7 @@ cantidadInviGrande.addEventListener("click",event => {
     cantidadPequesGrande.textContent = cantidadPequesSelec
     cantidadAdultosGrande.textContent = cantidadAdultosSelec
     totalGrande.classList.replace("text-gray-300","text-gray-700")
+    totalGrande.classList.replace("dark:text-white/60","dark:text-black")
     totalGrande.textContent = cantidadAdultosSelec + cantidadPequesSelec
     })
 }
