@@ -61,6 +61,11 @@ for (let i = 0; i < stays.length; i++) {
         catalogoCarga.innerHTML = ``
         catalogoConten.innerHTML += `
             <div class="catalogoTodos group cursor-pointer hover:scale-102 duration-300 w-full flex flex-col items-center justify-center gap-1 py-2 active:scale-98">
+                <div class="absolute object-cover h-55 sm:h-60 lg:h-65 text-[8px] flex items-start justify-center self-end">
+                    <p class="w-18 p-0.5 bg-white dark:bg-slate-900 dark:text-white rounded-bl-lg rounded-tl-sm flex items-center justify-center">
+                        <em>Max Guests: ${maxGuests}</em>
+                    </p>
+                </div>    
                 <img class="object-cover h-50 sm:h-55 lg:h-60 w-full rounded-2xl" src="${photo}" alt="">
                 <div class="w-[98%] flex items-center justify-between">
                     ${superHost ? `
@@ -144,62 +149,140 @@ botonBuscarMobile.addEventListener("click", function(){
 })
 
 editarBusqueda.addEventListener("click", event => {
-  // --- mantén tu lógica de incrementar/decrementar aquí (igual que la tuya) ---
-  if (event.target.closest(".botonSelecLocacionMobile")) {
-    locacionSelecMobile.classList.replace("text-gray-300","text-gray-700")
-    locacionSelecMobile.classList.replace("dark:text-white/60","dark:text-black")
-    locacionSelecMobile.textContent = event.target.textContent
-  }
 
-  if (event.target.classList.contains("masAdultos")) {
-    cantidadAdultosSelec++
-  } else if (event.target.classList.contains("menosAdultos")) {
-    if (cantidadAdultosSelec > 0) cantidadAdultosSelec--
-  } else if (event.target.classList.contains("masPeques")) {
-    cantidadPequesSelec++
-  } else if (event.target.classList.contains("menosPeques")) {
-    if (cantidadPequesSelec > 0) cantidadPequesSelec--
-  }
-
-  // actualizar UI de contadores
-  cantidadPequesMobile.textContent = cantidadPequesSelec
-  cantidadAdultosMobile.textContent = cantidadAdultosSelec
-  totalMobile.classList.replace("text-gray-300","text-gray-700")
-  totalMobile.classList.replace("dark:text-white/60","dark:text-black")
-  totalMobile.textContent = cantidadAdultosSelec + cantidadPequesSelec
-
-  // --- LECTURA ROBUSTA DE FILTROS ---
-  let ciudadFiltrada = ""
-  let ciudadTexto = (locacionSelecMobile.textContent || "").trim()
-  if (locacionSelecMobile.classList.contains("text-gray-700") && ciudadTexto !== "") {
-    ciudadFiltrada = ciudadTexto.includes(",") ? ciudadTexto.split(",")[0].trim() : ciudadTexto
-    ciudadFiltrada = ciudadFiltrada.toLowerCase()
-  }
-
-  let totalNum = Number(totalMobile.textContent)
-  let totalMobileOk = Number.isInteger(totalNum) && totalNum > 0 ? totalNum : null
-
-  // --- FILTRADO con .filter() ---
-  let staysFiltrados = stays.filter(stay => {
-    let coincideCiudad = !ciudadFiltrada || (stay.city && stay.city.toLowerCase() === ciudadFiltrada)
-    let coincideCapacidad = totalMobileOk == null || (stay.maxGuests >= totalMobileOk)
-    return coincideCiudad && coincideCapacidad
-  })
-
-  // --- Mostrar/ocultar cards ---
-  let contadorCards = 0
-  let setFiltrados = new Set(staysFiltrados)
-  Array.from(catalogoConten.children).forEach((card, i) => {
-    if (setFiltrados.has(stays[i])) {
-      card.classList.remove("hidden")
-      card.classList.add("flex")
-      contadorCards++
-    } else {
-      card.classList.add("hidden")
-      card.classList.remove("flex")
+    if (event.target.closest(".botonSelecLocacionMobile")) {
+        locacionSelecMobile.classList.replace("text-gray-300","text-gray-700")
+        locacionSelecMobile.classList.replace("dark:text-white/60","dark:text-black")
+        locacionSelecMobile.textContent = event.target.textContent
     }
-  })
 
-  cantidadCards.textContent = `${contadorCards} stays`
+    if (event.target.classList.contains("masAdultos")) {
+        cantidadAdultosSelec++
+    } else if (event.target.classList.contains("menosAdultos")) {
+        if (cantidadAdultosSelec > 0) cantidadAdultosSelec--
+    } else if (event.target.classList.contains("masPeques")) {
+        cantidadPequesSelec++
+    } else if (event.target.classList.contains("menosPeques")) {
+        if (cantidadPequesSelec > 0) cantidadPequesSelec--
+    }
+
+    cantidadPequesMobile.textContent = cantidadPequesSelec
+    cantidadAdultosMobile.textContent = cantidadAdultosSelec
+    totalMobile.classList.replace("text-gray-300","text-gray-700")
+    totalMobile.classList.replace("dark:text-white/60","dark:text-black")
+    totalMobile.textContent = cantidadAdultosSelec + cantidadPequesSelec
+
+    let ciudadFiltrada = ""
+    let ciudadTexto = (locacionSelecMobile.textContent || "").trim()
+
+    if (locacionSelecMobile.classList.contains("text-gray-700") && ciudadTexto !== "") {
+        ciudadFiltrada = ciudadTexto.includes(",") ? ciudadTexto.split(",")[0].trim() : ciudadTexto
+    }
+
+    let totalNum = parseInt(totalMobile.textContent)
+
+    let staysFiltrados = stays.filter(stay => {
+        let coincideCiudad = !ciudadFiltrada || (stay.city && stay.city === ciudadFiltrada)
+        let coincideCapacidad = stay.maxGuests >= totalNum
+        return coincideCiudad && coincideCapacidad
+    })
+    
+    let contadorCards = 0;
+
+    for (let i = 0; i < catalogoConten.children.length; i++) {
+        let card = catalogoConten.children[i];
+
+        if (staysFiltrados.includes(stays[i])) {
+            card.classList.remove("hidden")
+            card.classList.add("flex")
+            contadorCards++;
+        } else {
+            card.classList.add("hidden")
+            card.classList.remove("flex")
+        }
+    }
+
+    cantidadCards.textContent = `${contadorCards} stays`
+
 })
 
+// FILTRO DE BUSQUEDA // GRANDE
+
+let botonBuscarGrande = document.querySelector("#botonBuscarGrande")
+
+let editarBusquedaGrande = document.querySelector("#editarBusquedaGrande")
+
+let locacionSelecGrande = document.querySelector("#locacionSelecGrande")
+
+let cantidadAdultosGrande = document.querySelector("#cantidadAdultosGrande")
+let cantidadPequesGrande = document.querySelector("#cantidadPequesGrande")
+let totalGrande = document.querySelector("#totalGrande")
+
+let cantidadAdultosSelecGrande = 0
+let cantidadPequesSelecGrande = 0
+
+botonBuscarGrande.addEventListener("click", function(){
+    if (contenModalBuscarGrande.classList.contains("opacity-0")){
+        contenModalBuscarGrande.classList.replace("opacity-0","opacity-100")
+        contenModalBuscarGrande.classList.remove("pointer-events-none")
+        modalBuscarGrande.classList.add("translate-y-0")        
+    }
+})
+
+editarBusquedaGrande.addEventListener("click", event => {
+
+    if (event.target.closest(".botonSelecLocacionGrande")) {
+        locacionSelecGrande.classList.replace("text-gray-300","text-gray-700")
+        locacionSelecGrande.classList.replace("dark:text-white/60","dark:text-black")
+        locacionSelecGrande.textContent = event.target.textContent
+    }
+
+    if (event.target.classList.contains("masAdultos")) {
+        cantidadAdultosSelecGrande++
+    } else if (event.target.classList.contains("menosAdultos")) {
+        if (cantidadAdultosSelecGrande > 0) cantidadAdultosSelecGrande--
+    } else if (event.target.classList.contains("masPeques")) {
+        cantidadPequesSelecGrande++
+    } else if (event.target.classList.contains("menosPeques")) {
+        if (cantidadPequesSelecGrande > 0) cantidadPequesSelecGrande--
+    }
+
+    cantidadPequesGrande.textContent = cantidadPequesSelecGrande
+    cantidadAdultosGrande.textContent = cantidadAdultosSelecGrande
+    totalGrande.classList.replace("text-gray-300","text-gray-700")
+    totalGrande.classList.replace("dark:text-white/60","dark:text-black")
+    totalGrande.textContent = cantidadAdultosSelecGrande + cantidadPequesSelecGrande
+
+    let ciudadFiltrada = ""
+    let ciudadTexto = (locacionSelecGrande.textContent || "").trim()
+
+    if (locacionSelecGrande.classList.contains("text-gray-700") && ciudadTexto !== "") {
+        ciudadFiltrada = ciudadTexto.includes(",") ? ciudadTexto.split(",")[0].trim() : ciudadTexto
+    }
+
+    let totalNum = parseInt(totalGrande.textContent)
+
+    let staysFiltrados = stays.filter(stay => {
+        let coincideCiudad = !ciudadFiltrada || (stay.city && stay.city === ciudadFiltrada)
+        let coincideCapacidad = stay.maxGuests >= totalNum
+        return coincideCiudad && coincideCapacidad
+    })
+    
+    let contadorCards = 0;
+
+    for (let i = 0; i < catalogoConten.children.length; i++) {
+        let card = catalogoConten.children[i];
+
+        if (staysFiltrados.includes(stays[i])) {
+            card.classList.remove("hidden")
+            card.classList.add("flex")
+            contadorCards++;
+        } else {
+            card.classList.add("hidden")
+            card.classList.remove("flex")
+        }
+    }
+
+    cantidadCards.textContent = `${contadorCards} stays`
+
+})
