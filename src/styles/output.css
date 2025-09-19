@@ -464,6 +464,9 @@
   .justify-center {
     justify-content: center;
   }
+  .justify-end {
+    justify-content: flex-end;
+  }
   .justify-start {
     justify-content: flex-start;
   }
@@ -696,6 +699,9 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .text-\[10\] {
+    color: 10;
+  }
   .text-\[xs\] {
     color: xs;
   }
@@ -865,6 +871,23 @@
       --tw-scale-y: 98%;
       --tw-scale-z: 98%;
       scale: var(--tw-scale-x) var(--tw-scale-y);
+    }
+  }
+  .active\:font-bold {
+    &:active {
+      --tw-font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+  .active\:font-semibold {
+    &:active {
+      --tw-font-weight: var(--font-weight-semibold);
+      font-weight: var(--font-weight-semibold);
+    }
+  }
+  .active\:underline {
+    &:active {
+      text-decoration-line: underline;
     }
   }
   .sm\:flex {

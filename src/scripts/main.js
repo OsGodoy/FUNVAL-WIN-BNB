@@ -286,3 +286,40 @@ editarBusquedaGrande.addEventListener("click", event => {
     cantidadCards.textContent = `${contadorCards} stays`
 
 })
+
+
+// LIMPIANDO FILTRO DE BUSQUEDA //
+let mostrarTodo = document.querySelector("#mostrarTodo")
+
+mostrarTodo.addEventListener("click", () => {
+
+    locacionSelecMobile.classList.replace("text-gray-700","text-gray-300")
+    locacionSelecMobile.classList.replace("dark:text-black","dark:text-white/60")
+    locacionSelecMobile.textContent = "Add location"
+
+    cantidadPequesMobile.textContent = 0
+    cantidadAdultosMobile.textContent = 0
+    totalMobile.classList.replace("text-gray-700","text-gray-300")
+    totalMobile.classList.replace("dark:text-black","dark:text-white/60")
+    totalMobile.textContent = "Add guests"
+
+    cantidadInviMobile.classList.replace("opacity-100","opacity-0")
+    cantidadInviMobile.classList.add("pointer-events-none")
+    selectLocacionMobile.classList.replace("opacity-100","opacity-0")
+    selectLocacionMobile.classList.add("pointer-events-none")
+    botonLocacionMobile.classList.replace("border-red-400","border-gray-100")
+    botonLocacionMobile.classList.replace("dark:border-rose-900","dark:border-white/50")
+    botonCantidadInviMobile.classList.replace("border-red-400","border-gray-100")
+    botonCantidadInviMobile.classList.replace("dark:border-rose-900","dark:border-white/50")
+
+    let cards = catalogoConten.children
+
+    for (let i = 0; i < cards.length; i++) {
+        let card = cards[i]
+        card.classList.remove("hidden")
+        card.classList.add("flex")
+    }
+
+    cantidadCards.textContent = `${cards.length} stays`
+
+})
